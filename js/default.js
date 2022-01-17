@@ -1,12 +1,14 @@
 window.onload = function(){
-        let ShowP = document.querySelector('.container p');
-        // console.log(ShowP)
-        ShowP.addEventListener('click', ()=>{
-            ShowP.style.whiteSpace ="normal";
-            ShowP.style.width ="auto";
-            ShowP.style.height ="auto";
-        })
-    }
+    let ShowP = document.querySelector('.container p');
+    // console.log(ShowP)
+    ShowP.addEventListener('click', ()=>{
+        ShowP.style.whiteSpace ="normal";
+        ShowP.style.width ="auto";
+        ShowP.style.height ="auto";
+    })
+    slideOut()
+}
+// 이미지팝업
 //     function ImgPop(_target){
 //         let 
 //     }
@@ -22,7 +24,9 @@ window.onload = function(){
 //         })
 //     }    
 // }
-function Chat(){
+
+
+function Chat(){//인사,전화,게임
         let popChat = document.querySelector('.wrap');
         // popChat.removeChild('div');
         // popChat.className('hide')
@@ -49,5 +53,39 @@ function Phone(){
         alert('이제 더 누르셔도 같은말만 나와요');
     }else{
         alert('왜자꾸 누르시나용 ㅜ');
+    }
+}
+// 슬라이드
+let sliNum = 0
+function up() {
+    sliNum++
+    slideOut()
+}
+function down() {
+    sliNum--
+    slideOut()
+}
+function slideOut(){
+    let sli01 = document.getElementById('slide01')
+    let sli02 = document.getElementById('slide02')
+    let sli03 = document.getElementById('slide03')
+    if(sliNum==0){
+        sli01.classList.add('active')
+        sli02.classList.remove('active')
+        sli03.classList.remove('active')
+    }else if(sliNum==1){
+        sli02.classList.add('active')
+        sli01.classList.remove('active')
+        sli03.classList.remove('active')
+    }else if(sliNum==2){
+        sli03.classList.add('active')
+        sli01.classList.remove('active')
+        sli02.classList.remove('active')
+    }else if(sliNum==3){
+        sliNum=0
+        slideOut()
+    }else if(sliNum==-1){
+        sliNum=2
+        slideOut()
     }
 }
